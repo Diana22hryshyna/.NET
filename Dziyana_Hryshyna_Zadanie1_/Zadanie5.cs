@@ -30,6 +30,18 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.TextLength == 0)
+            {
+                MessageBox.Show("Some textboxes are empty! Try again.");
+                return;
+            }
+
+            int parsedValue;
+            if (!int.TryParse(textBox1.Text, out parsedValue))
+            {
+                MessageBox.Show("This is int only fields! Try again");
+                return;
+            }
             int lowestN = 0;
             double highestN = 1000000;
             int k = int.Parse(this.textBox1.Text);
@@ -46,15 +58,17 @@ namespace Dziyana_Hryshyna_Zadanie1_
             while (true) {
                 var random = new Random();
 
-                X2 = random.Next(lowestN, 1000000);
                 X1 = random.Next(lowestN, 1000000);
+                X2 = random.Next(X1, 1000000);
+                
                 singleCount = new SingleCount(X1, X2, k, lowestN, highestN, function,
                 real_result, AreaType.Rectangle);
 
                 double result_rectangle_function = singleCount.Zad6();
-                
-                X2 = random.Next(lowestN, 1000000);
+
                 X1 = random.Next(lowestN, 1000000);
+                X2 = random.Next(X1, 1000000);
+
                 singleCount = new SingleCount(X1, X2, k, lowestN, highestN, function1,
                 real_result, AreaType.Rectangle);
 

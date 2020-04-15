@@ -30,6 +30,30 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.TextLength == 0 || textBox2.TextLength == 0 || textBox3.TextLength == 0)
+            {
+                MessageBox.Show("Some textboxes are empty! Try again.");
+                return;
+            }
+
+            double parsedValue;
+            double parsedValue1;
+            double parsedValue2;
+            if (!double.TryParse(textBox1.Text, out parsedValue))
+            {
+                MessageBox.Show("This is double only fields! Try again");
+                return;
+            }
+            if (!double.TryParse(textBox2.Text, out parsedValue1))
+            {
+                MessageBox.Show("This is double only fields! Try again");
+                return;
+            }
+            if(!double.TryParse(textBox3.Text, out parsedValue2))
+            {
+                MessageBox.Show("This is double only fields! Try again");
+                return;
+            }
             this.listBox1.Items.Clear();
 
             double x1 = double.Parse(this.textBox1.Text);
@@ -44,6 +68,16 @@ namespace Dziyana_Hryshyna_Zadanie1_
             singleCount.AreaType = AreaType.Trapezoid;
             double n1 = singleCount.Zad7();
             this.listBox1.Items.Add($"Metoda trapezowa: {n1}");
+        }
+
+        private void Zadanie7_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

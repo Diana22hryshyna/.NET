@@ -20,12 +20,23 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.TextLength == 0)
+            {
+                MessageBox.Show("Some textboxes are empty! Try again.");
+                return;
+            }
+
+            double parsedValue;
+            if (!double.TryParse(textBox1.Text, out parsedValue))
+            {
+                MessageBox.Show("This is double only fields! Try again");
+                return;
+            }
             double z = double.Parse(this.textBox1.Text);
             int lowestH = 0;
             double real_result = 1;
             this.listBox1.Items.Clear();
-            SingleCount singleCount = new SingleCount(lowestH, Math.PI/2, Math.Cos,
-                real_result, AreaType.Rectangle, z);
+            SingleCount singleCount = new SingleCount(Math.Cos, real_result, AreaType.Rectangle, z, 0, (int)Math.PI/2);
             double listRect = singleCount.Zad2();
             this.listBox1.Items.Add($"Metoda prostokatna: {listRect}");
             

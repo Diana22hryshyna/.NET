@@ -109,6 +109,16 @@ namespace Dziyana_Hryshyna_Zadanie1_.Model
                 this.function = function;
             }
 
+            public SingleCount(Func<double, double> function, double area, AreaType areaType, double error, int x1, int x2)
+            {
+                X1 = x1;
+                X2 = x2;
+                this.function = function;
+                Area = area;
+                AreaType = areaType;
+                Error = error;
+            }
+
             public List<double> Zad1()
             {
 
@@ -128,17 +138,15 @@ namespace Dziyana_Hryshyna_Zadanie1_.Model
 
             public double Zad2()
             {
-                var random = new Random();
-                double deviation = 0;
+                double deviation = 100000000000000;
                 double currentArea = 0;
-                int n = 1;
-                do
+                int n = 0;
+                while (deviation >= Math.Abs(Error))
                 {
                     currentArea = CalculateArea(function, n);
-                    deviation = Math.Abs(Area - currentArea) * 100 / Area;
+                    deviation = Math.Abs(Area - currentArea) / Area *100;
                     n++;
                 }
-                while (deviation <= Math.Abs(Error) & deviation >= -Error);
                 return n;
             }
 
@@ -159,7 +167,8 @@ namespace Dziyana_Hryshyna_Zadanie1_.Model
 
             public double Zad6()
             {
-                int n = 10 ^ K;
+                int n = 0;
+                n = (int)Math.Pow(10, K);
                 double currentArea = CalculateArea(function, n);
                 return currentArea;
             }

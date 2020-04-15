@@ -35,6 +35,24 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.TextLength == 0 || textBox2.TextLength == 0)
+            {
+                MessageBox.Show("Some textboxes are empty! Try again.");
+                return;
+            }
+
+            int parsedValue;
+            int parsedValue1;
+            if (!int.TryParse(textBox1.Text, out parsedValue))
+            {
+                MessageBox.Show("This is int only fields! Try again");
+                return;
+            }
+            if (!int.TryParse(textBox2.Text, out parsedValue1))
+            {
+                MessageBox.Show("This is int only fields! Try again");
+                return;
+            }
             int lowestN = 0;
             double highestN = 100;
             int k = int.Parse(this.textBox1.Text);
@@ -133,6 +151,11 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
             this.listBox1.Items.Add($"Minimalna wartosc metoda trapezoida x1: {tuple_trap_function[index_of_min_val].Item1}");
             this.listBox1.Items.Add($"Minimalna wartosc metoda trapezoida x2: {tuple_trap_function[index_of_min_val].Item2}");
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

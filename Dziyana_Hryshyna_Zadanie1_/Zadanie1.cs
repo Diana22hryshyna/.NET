@@ -45,8 +45,38 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            if (textBox1.TextLength == 0 || textBox2.TextLength == 0)
+            {
+                MessageBox.Show("Some textboxes are empty! Try again.");
+                return;
+            }
+
+            int parsedValue;
+            double parsedValue1;
+            if (!int.TryParse(textBox1.Text, out parsedValue))
+            {
+                MessageBox.Show("This is int only fields! Try again");
+                return;
+            }
+            if (!double.TryParse(textBox2.Text, out parsedValue1))
+            {
+                MessageBox.Show("This is double only fields! Try again");
+                return;
+            }
+
             int m = int.Parse(this.textBox1.Text);
             double z = double.Parse(this.textBox2.Text);
+            if (m > 100000)
+            {
+                MessageBox.Show("Too large number m");
+                return;
+            }
+
+            if (z > 100000)
+            {
+                MessageBox.Show("Too large number z");
+                return;
+            }
             int x1 = 0;
             double x2 = 100;
             double real_result = 1000000 / 3;

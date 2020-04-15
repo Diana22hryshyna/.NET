@@ -30,24 +30,48 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
         private double function(double x)
         {
-            return x * x;
+            return x * x * x;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.TextLength == 0)
+            {
+                MessageBox.Show("Some textboxes are empty! Try again.");
+                return;
+            }
+
+            double parsedValue;
+            if (!double.TryParse(textBox1.Text, out parsedValue))
+            {
+                MessageBox.Show("This is double only fields! Try again");
+                return;
+            }
+
             double z = double.Parse(this.textBox1.Text);
+            if(z > 100 || z < 0)
+            {
+                MessageBox.Show("Please enter value from 0 to 100");
+                return;
+            }
+
             int lowestH = 0;
-            double highestH = 100;
-            double real_result = 99999999 / 4;
+            int highestH = 100;
+            double real_result = 25000000;
             this.listBox1.Items.Clear();
-            SingleCount singleCount = new SingleCount(lowestH, highestH, function,
-                real_result, AreaType.Rectangle, z);
+            SingleCount singleCount = new SingleCount( function,
+                real_result, AreaType.Rectangle, z, lowestH, highestH);
             double n_rect = singleCount.Zad2();
             this.listBox1.Items.Add($"Metoda prostokatna: {n_rect}");
             
             singleCount.AreaType = AreaType.Trapezoid;
             double n_trap = singleCount.Zad2();
             this.listBox1.Items.Add($"Metoda trapezowa: {n_trap}");
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
