@@ -66,15 +66,15 @@ namespace Dziyana_Hryshyna_Zadanie1_
 
             int m = int.Parse(this.textBox1.Text);
             double z = double.Parse(this.textBox2.Text);
-            if (m > 100000)
+            if (m <= 0 || m > 1000)
             {
-                MessageBox.Show("Too large number m");
+                MessageBox.Show("m range from 1 to 1000");
                 return;
             }
 
-            if (z > 100000)
+            if (z < 0 || z > 100)
             {
-                MessageBox.Show("Too large number z");
+                MessageBox.Show("z range from 0 to 100");
                 return;
             }
             int x1 = 0;

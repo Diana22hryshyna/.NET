@@ -45,7 +45,11 @@ namespace Dziyana_Hryshyna_Zadanie1_
             int lowestN = 0;
             double highestN = 1000000;
             int k = int.Parse(this.textBox1.Text);
-            
+            if (k > 4  || k < 0)
+            {
+                MessageBox.Show("Please enter value from 1 to 4");
+                return;
+            }
             double real_result = 1000000 / 3;
             this.listBox1.Items.Clear();
 
@@ -80,6 +84,11 @@ namespace Dziyana_Hryshyna_Zadanie1_
                     break;
                 }
             };
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

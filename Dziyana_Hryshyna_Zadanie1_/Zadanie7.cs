@@ -59,7 +59,21 @@ namespace Dziyana_Hryshyna_Zadanie1_
             double x1 = double.Parse(this.textBox1.Text);
             double x2 = double.Parse(this.textBox2.Text);
             double z = double.Parse(this.textBox3.Text);
-
+            if (z < 0 || z > 1000)
+            {
+                MessageBox.Show("Please enter value z from 0 to 1000");
+                return;
+            }
+            if (x1 < 0 || x1 > 1000)
+            {
+                MessageBox.Show("Please enter value x1 from 0 to 1000");
+                return;
+            }
+            if (x2 < 0 || x2 > 1000)
+            {
+                MessageBox.Show("Please enter value x2 from 0 to 1000");
+                return;
+            }
             SingleCount singleCount = new SingleCount(x1, x2, function, AreaType.Rectangle, z);
             double n = singleCount.Zad7();
 

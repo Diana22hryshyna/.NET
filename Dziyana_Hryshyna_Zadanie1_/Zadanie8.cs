@@ -33,6 +33,11 @@ namespace Dziyana_Hryshyna_Zadanie1_
                 return;
             }
             double z = double.Parse(this.textBox1.Text);
+            if (z < 0 || z > 100)
+            {
+                MessageBox.Show("Please enter value z from 0 to 100");
+                return;
+            }
             int lowestH = 0;
             double real_result = 1;
             this.listBox1.Items.Clear();

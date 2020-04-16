@@ -43,5 +43,10 @@ namespace Dziyana_Hryshyna_Zadanie1_
             string text = "Nieprawidłowe polecenie do tego zadania.";
             this.listBox1.Items.Add(text);
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

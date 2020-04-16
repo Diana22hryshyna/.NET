@@ -49,9 +49,9 @@ namespace Dziyana_Hryshyna_Zadanie1_
             }
 
             double z = double.Parse(this.textBox1.Text);
-            if(z > 100 || z < 0)
+            if(z > 65 || z < 0)
             {
-                MessageBox.Show("Please enter value from 0 to 100");
+                MessageBox.Show("Please enter value from 0 to 65");
                 return;
             }
 

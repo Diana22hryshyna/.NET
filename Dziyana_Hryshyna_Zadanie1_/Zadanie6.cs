@@ -57,7 +57,16 @@ namespace Dziyana_Hryshyna_Zadanie1_
             double highestN = 100;
             int k = int.Parse(this.textBox1.Text);
             int m = int.Parse(this.textBox2.Text);
-
+            if (k < 0 || k > 4)
+            {
+                MessageBox.Show("Please enter value k from 0 to 4");
+                return;
+            }
+            if (m > 1000 || m <= 0)
+            {
+                MessageBox.Show("Please enter value m from 1 to 1000");
+                return;
+            }
             this.listBox1.Items.Clear();
 
             int X2 = 0;
